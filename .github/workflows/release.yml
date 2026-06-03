@@ -1,0 +1,62 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout plugin repo
+        uses: actions/checkout@v4
+
+      - name: Checkout QuickLook (for QuickLook.Common)
+        uses: actions/checkout@v4
+        with:
+          repository: QL-Win/QuickLook
+          path: QuickLook
+
+      - name: Generate GitVersion.cs
+        shell: pwsh
+        run: |
+          cd QuickLook
+          powershell -ExecutionPolicy Bypass -file "Scripts/update-version.ps1"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build
+        run: dotnet build src/QuickLook.Plugin.GitFolderViewer.csproj -c Release -p:LangVersion=preview
+
+      - name: Prepare plugin package
+        shell: pwsh
+        run: |
+          $staging = "staging"
+          New-Item -ItemType Directory -Path $staging -Force
+
+          # Copy build output
+          Copy-Item "build/Release/QuickLook.Plugin.GitFolderViewer.dll" $staging/
+          Copy-Item "src/Translations.config" $staging/
+
+          # Copy metadata
+          Copy-Item "QuickLook.Plugin.Metadata.config" $staging/
+
+      - name: Pack .qlplugin
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}" -replace '^v',''
+          $name = "QuickLook.Plugin.GitFolderViewer-$version"
+          Compress-Archive -Path "staging/*" -DestinationPath "$name.qlplugin"
+          echo "PLUGIN_FILE=$name.qlplugin" >> $env:GITHUB_ENV
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.PLUGIN_FILE }}
+          generate_release_notes: true

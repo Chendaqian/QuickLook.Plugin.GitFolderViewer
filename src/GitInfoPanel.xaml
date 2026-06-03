@@ -1,0 +1,101 @@
+<UserControl x:Class="QuickLook.Plugin.GitFolderViewer.GitInfoPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             UseLayoutRounding="True"
+             FontSize="14">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/QuickLook.Common;component/Styles/MainWindowStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="{DynamicResource NormalText}" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="IsReadOnly" Value="True" />
+                <Setter Property="Focusable" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="20,16,20,16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Header: Branch -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,12">
+            <TextBox FontSize="20" FontWeight="SemiBold"
+                     Text="{Binding Branch}" IsReadOnly="True" />
+        </StackPanel>
+
+        <!-- Info Grid -->
+        <Grid Grid.Row="1" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding LabelTrackingBranch}" FontWeight="SemiBold"
+                       Foreground="{DynamicResource HighlightText}" Margin="0,0,16,6" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding TrackingBranch}"
+                     Margin="0,0,0,6" />
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding LabelRemoteUrl}" FontWeight="SemiBold"
+                       Foreground="{DynamicResource HighlightText}" Margin="0,0,16,6" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding RemoteUrl}"
+                     Margin="0,0,0,6" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="HEAD" FontWeight="SemiBold"
+                       Foreground="{DynamicResource HighlightText}" Margin="0,0,16,6" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding HeadCommit}"
+                     Margin="0,0,0,6" FontFamily="Consolas" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding LabelBranches}" FontWeight="SemiBold"
+                       Foreground="{DynamicResource HighlightText}" Margin="0,0,16,6" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding BranchInfo}"
+                     Margin="0,0,0,6" />
+        </Grid>
+
+        <!-- Last Commit -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,12">
+            <TextBlock Text="{Binding LabelLastCommit}" FontWeight="SemiBold"
+                       Foreground="{DynamicResource HighlightText}" Margin="0,0,0,4" />
+            <TextBox Text="{Binding LastCommitMessage}" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <!-- Recent Log -->
+        <DockPanel Grid.Row="3">
+            <TextBlock DockPanel.Dock="Top" Text="{Binding LabelRecentActivity}" FontWeight="SemiBold"
+                       Foreground="{DynamicResource HighlightText}" Margin="0,0,0,4" />
+            <ListBox ItemsSource="{Binding RecentLog}"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     Foreground="{DynamicResource NormalText}"
+                     FontSize="12"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,1,0,1" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+    </Grid>
+</UserControl>

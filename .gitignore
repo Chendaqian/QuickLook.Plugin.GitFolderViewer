@@ -1,0 +1,7 @@
+build/
+*.user
+*.suo
+.vs/
+*.sln.docstates
+[Bb]in/
+[Oo]bj/
