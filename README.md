@@ -5,6 +5,8 @@
 
 A [QuickLook](https://github.com/QL-Win/QuickLook) plugin that lets you preview `.git` folders with a single press of the spacebar.
 
+[中文说明](README.zh-CN.md)
+
 ## Features
 
 Press spacebar on any `.git` folder in Windows Explorer to see:
@@ -42,10 +44,8 @@ All values are copyable — just click and select.
 ### Build from Source
 
 ```bash
-git clone https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer.git
+git clone --recurse-submodules https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer.git
 cd QuickLook.Plugin.GitFolderViewer
-
-# Requires QuickLook source at ../QuickLook (sibling directory)
 dotnet build src/QuickLook.Plugin.GitFolderViewer.csproj -c Release -p:LangVersion=preview
 ```
 

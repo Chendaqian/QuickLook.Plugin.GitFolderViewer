@@ -11,20 +11,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout plugin repo
-        uses: actions/checkout@v4
-
-      - name: Checkout QuickLook (for QuickLook.Common)
+      - name: Checkout plugin repo (with submodules)
         uses: actions/checkout@v4
         with:
-          repository: QL-Win/QuickLook
-          path: QuickLook
-
-      - name: Generate GitVersion.cs
-        shell: pwsh
-        run: |
-          cd QuickLook
-          powershell -ExecutionPolicy Bypass -file "Scripts/update-version.ps1"
+          submodules: recursive
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
