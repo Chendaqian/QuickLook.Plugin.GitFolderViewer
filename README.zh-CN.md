@@ -38,7 +38,7 @@
 
 1. 从 [Releases](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/releases/latest) 下载 `.qlplugin` 文件
 2. 将 `.qlplugin` 后缀改为 `.zip`
-3. 解压到 `%LocalAppData%\QuickLook\QuickLook.Plugin\QuickLook.Plugin.GitFolderViewer\`
+3. 解压到 `%LocalAppData%\QuickLook\QuickLook.Plugin`
 4. 重启 QuickLook
 
 ### 从源码编译
