@@ -38,7 +38,7 @@ All values are copyable — just click and select.
 
 1. Download the `.qlplugin` file from [Releases](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/releases/latest)
 2. Rename `.qlplugin` to `.zip`
-3. Extract to `%LocalAppData%\QuickLook\QuickLook.Plugin\QuickLook.Plugin.GitFolderViewer\`
+3. Extract to `%LocalAppData%\QuickLook\QuickLook.Plugin`
 4. Restart QuickLook
 
 ### Build from Source
