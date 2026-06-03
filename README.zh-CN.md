@@ -34,6 +34,10 @@
 2. 下载 `.qlplugin` 文件
 3. 双击该文件，QuickLook 会自动安装
 
+### 快速安装
+
+在资源管理器中选中 `.qlplugin` 文件，按空格键，QuickLook 会直接安装。
+
 ### 手动安装
 
 1. 从 [Releases](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/releases/latest) 下载 `.qlplugin` 文件

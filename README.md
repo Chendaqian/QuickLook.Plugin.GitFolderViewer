@@ -34,6 +34,10 @@ All values are copyable — just click and select.
 2. Download the `.qlplugin` file
 3. Double-click the file — QuickLook will install it automatically
 
+### Quick Install
+
+Select the `.qlplugin` file in Explorer and press spacebar — QuickLook will install it directly.
+
 ### Manual
 
 1. Download the `.qlplugin` file from [Releases](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/releases/latest)
