@@ -3,9 +3,16 @@
 [![Build and Release](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/actions/workflows/release.yml/badge.svg)](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/actions/workflows/release.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/Chendaqian/QuickLook.Plugin.GitFolderViewer)](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/releases/latest)
 
+<img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/971f24c3-5732-4b7b-8e1b-92f84688ca0f" />
+
+
 一个 [QuickLook](https://github.com/QL-Win/QuickLook) 插件，在资源管理器中按空格键即可预览 `.git` 文件夹信息。
 
+
 [English](README.md)
+
+<img width="752" height="642" alt="PixPin_2026-06-04_14-20-32" src="https://github.com/user-attachments/assets/dc505893-05ad-4239-8a54-972596a3939c" />
+
 
 ## 功能
 
