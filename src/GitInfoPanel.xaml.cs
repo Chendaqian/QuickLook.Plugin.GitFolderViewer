@@ -1,4 +1,3 @@
-using QuickLook.Common.Helpers;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -19,6 +18,7 @@ public partial class GitInfoPanel : UserControl, INotifyPropertyChanged
 
     // Labels (translated)
     private string _labelTrackingBranch;
+
     private string _labelRemoteUrl;
     private string _labelBranches;
     private string _labelLastCommit;

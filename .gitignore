@@ -5,3 +5,4 @@ build/
 *.sln.docstates
 [Bb]in/
 [Oo]bj/
+/logs

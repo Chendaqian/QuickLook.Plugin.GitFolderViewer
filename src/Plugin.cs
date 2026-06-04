@@ -1,4 +1,3 @@
-using QuickLook.Common.Plugin;
 using System.IO;
 using System.Windows;
 
