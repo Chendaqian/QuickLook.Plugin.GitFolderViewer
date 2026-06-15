@@ -3,9 +3,7 @@
 [![Build and Release](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/actions/workflows/release.yml/badge.svg)](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/actions/workflows/release.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/Chendaqian/QuickLook.Plugin.GitFolderViewer)](https://github.com/Chendaqian/QuickLook.Plugin.GitFolderViewer/releases/latest)
 
-<div align="center">
-  <img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/971f24c3-5732-4b7b-8e1b-92f84688ca0f" />
-</div>
+<img width="160" height="160" alt="image" src="https://github.com/user-attachments/assets/971f24c3-5732-4b7b-8e1b-92f84688ca0f" />
 
 A [QuickLook](https://github.com/QL-Win/QuickLook) plugin that lets you preview `.git` folders with a single press of the spacebar.
 
