@@ -83,3 +83,13 @@ This plugin reads git data directly from `.git` folder files — no `git.exe` re
 ## License
 
 [GPL-3.0](LICENSE)
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=Chendaqian%2FQuickLook.Plugin.GitFolderViewer&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Chendaqian/QuickLook.Plugin.GitFolderViewer&type=date&theme=dark&legend=top-left&sealed_token=jqs-j4sWTRZCYThbfLjg6ypfWOjaX9SRwLFaT9Ldtz9o0Hg8L_IEBr9CSlHIjC6HDBxaQzeFzx4B1va6xT1m8AfiMasj9cJ5o2qpUMfKUSkwCW7GhnHKmjxbRAQ5vvPWnz1R2KJXjxNBXgugTS_HftZyW-nhJ6YR7B0di5zjpF4vlwTMPUQT1sWRGgiM" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Chendaqian/QuickLook.Plugin.GitFolderViewer&type=date&legend=top-left&sealed_token=jqs-j4sWTRZCYThbfLjg6ypfWOjaX9SRwLFaT9Ldtz9o0Hg8L_IEBr9CSlHIjC6HDBxaQzeFzx4B1va6xT1m8AfiMasj9cJ5o2qpUMfKUSkwCW7GhnHKmjxbRAQ5vvPWnz1R2KJXjxNBXgugTS_HftZyW-nhJ6YR7B0di5zjpF4vlwTMPUQT1sWRGgiM" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Chendaqian/QuickLook.Plugin.GitFolderViewer&type=date&legend=top-left&sealed_token=jqs-j4sWTRZCYThbfLjg6ypfWOjaX9SRwLFaT9Ldtz9o0Hg8L_IEBr9CSlHIjC6HDBxaQzeFzx4B1va6xT1m8AfiMasj9cJ5o2qpUMfKUSkwCW7GhnHKmjxbRAQ5vvPWnz1R2KJXjxNBXgugTS_HftZyW-nhJ6YR7B0di5zjpF4vlwTMPUQT1sWRGgiM" />
+ </picture>
+</a>
