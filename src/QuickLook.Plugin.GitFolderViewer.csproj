@@ -7,6 +7,7 @@
         <AssemblyName>QuickLook.Plugin.GitFolderViewer</AssemblyName>
         <FileAlignment>512</FileAlignment>
         <SignAssembly>false</SignAssembly>
+        <Version>1.0.1</Version>
         <UseWPF>true</UseWPF>
         <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
