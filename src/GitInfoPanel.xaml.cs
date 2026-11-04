@@ -1,8 +1,12 @@
+using QuickLook.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace QuickLook.Plugin.GitFolderViewer;
 
@@ -23,6 +27,10 @@ public partial class GitInfoPanel : UserControl, INotifyPropertyChanged
     private string _labelBranches;
     private string _labelLastCommit;
     private string _labelRecentActivity;
+    private string _copyButtonText;
+    private string _copiedButtonText;
+    private bool _canCopyRemoteUrl;
+    private readonly DispatcherTimer _copyResetTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1.5) };
 
     public string Branch
     {
@@ -96,6 +104,18 @@ public partial class GitInfoPanel : UserControl, INotifyPropertyChanged
         set { _labelRecentActivity = value; OnPropertyChanged(nameof(LabelRecentActivity)); }
     }
 
+    public string CopyButtonText
+    {
+        get => _copyButtonText;
+        set { _copyButtonText = value; OnPropertyChanged(nameof(CopyButtonText)); }
+    }
+
+    public bool CanCopyRemoteUrl
+    {
+        get => _canCopyRemoteUrl;
+        set { _canCopyRemoteUrl = value; OnPropertyChanged(nameof(CanCopyRemoteUrl)); }
+    }
+
     private static string Domain => Assembly.GetExecutingAssembly().GetName().Name;
 
     public GitInfoPanel()
@@ -108,6 +128,11 @@ public partial class GitInfoPanel : UserControl, INotifyPropertyChanged
         LabelBranches = TranslationHelper.Get("GitBranches", domain: Domain);
         LabelLastCommit = TranslationHelper.Get("GitLastCommit", domain: Domain);
         LabelRecentActivity = TranslationHelper.Get("GitRecentActivity", domain: Domain);
+        _copyButtonText = TranslationHelper.Get("GitCopy", domain: Domain);
+        _copiedButtonText = TranslationHelper.Get("GitCopied", domain: Domain);
+        CopyButtonText = _copyButtonText;
+
+        _copyResetTimer.Tick += CopyResetTimer_Tick;
     }
 
     public void DisplayGitInfo(GitInfo info)
@@ -131,11 +156,39 @@ public partial class GitInfoPanel : UserControl, INotifyPropertyChanged
             TrackingBranch = noTracking;
         }
 
-        RemoteUrl = info.RemoteUrls.FirstOrDefault() ?? noRemote;
+        string remoteUrl = info.RemoteUrls?.FirstOrDefault(url => !string.IsNullOrWhiteSpace(url));
+        RemoteUrl = remoteUrl ?? noRemote;
+        CanCopyRemoteUrl = !string.IsNullOrEmpty(remoteUrl);
+        CopyButtonText = _copyButtonText;
         HeadCommit = info.HeadCommitHash ?? "";
         BranchInfo = $"{info.LocalBranchCount} local, {info.RemoteBranchCount} remote";
         LastCommitMessage = info.LastCommitMessage ?? "";
         RecentLog = info.RecentLog;
+    }
+
+    private void CopyRemoteUrl_Click(object sender, RoutedEventArgs e)
+    {
+        if (!CanCopyRemoteUrl)
+            return;
+
+        try
+        {
+            Clipboard.SetText(RemoteUrl);
+        }
+        catch (Exception)
+        {
+            return;
+        }
+
+        _copyResetTimer.Stop();
+        CopyButtonText = _copiedButtonText;
+        _copyResetTimer.Start();
+    }
+
+    private void CopyResetTimer_Tick(object sender, EventArgs e)
+    {
+        _copyResetTimer.Stop();
+        CopyButtonText = _copyButtonText;
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

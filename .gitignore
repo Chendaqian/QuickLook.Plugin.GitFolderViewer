@@ -6,3 +6,5 @@ build/
 [Bb]in/
 [Oo]bj/
 /logs
+/.tmp-nuget
+/src/.nuget
